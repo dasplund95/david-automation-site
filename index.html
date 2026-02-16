@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>David Automation</title>
+  <meta name="description" content="Minimal AI lead follow-up systems for modern real estate teams." />
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --card: #ffffffcc;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --line: #d2d2d7;
+      --accent: #0071e3;
+      --radius: 22px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at -10% -30%, #eaf2ff 0%, transparent 60%),
+        radial-gradient(1000px 700px at 120% -20%, #f2f8ff 0%, transparent 55%),
+        var(--bg);
+      letter-spacing: -0.01em;
+    }
+
+    .wrap {
+      width: min(1080px, 92vw);
+      margin: 0 auto;
+      padding: 28px 0 70px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .pill {
+      font-size: .8rem;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: #ffffffb8;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #ffffff;
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 42px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      max-width: 12ch;
+      font-weight: 650;
+    }
+
+    .sub {
+      margin-top: 14px;
+      max-width: 64ch;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 1.03rem;
+    }
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .btn {
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-size: .92rem;
+      font-weight: 600;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: #fff;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .section {
+      padding: 26px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    li + li { margin-top: 6px; }
+
+    .start {
+      padding: 26px;
+    }
+
+    ol {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .92rem;
+      color: #4d4d50;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 8px 10px;
+      display: inline-block;
+      margin-top: 8px;
+      word-break: break-all;
+    }
+
+    footer {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: .84rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .section, .start { padding: 22px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">David Automation</div>
+      <div class="pill">Real Estate Teams • 72-hour setup</div>
+    </div>
+
+    <section class="card hero">
+      <h1>AI follow-up, designed to feel effortless.</h1>
+      <p class="sub">
+        David Automation builds clean, high-conversion follow-up systems for real estate teams.
+        Faster response, consistent nurture, and only qualified conversations sent to you.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#start">Start now</a>
+        <a class="btn" href="#offer">What’s included</a>
+      </div>
+    </section>
+
+    <div class="grid" id="offer">
+      <section class="card section">
+        <h2>What you get</h2>
+        <ul>
+          <li>Speed-to-lead response flow with personalized follow-up.</li>
+          <li>Routing logic so high-intent leads reach your team immediately.</li>
+          <li>Templates and sequencing tailored for your market.</li>
+          <li>Done-for-you implementation with light post-launch support.</li>
+        </ul>
+      </section>
+
+      <aside class="card section">
+        <h2>Best fit</h2>
+        <ul>
+          <li>Teams buying online leads (Zillow, PPC, Meta, Realtor.com).</li>
+          <li>Agents who miss response windows during showings or evenings.</li>
+          <li>Operators wanting consistency without adding payroll first.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="card start" id="start">
+      <h2>Start async (no call required)</h2>
+      <ol>
+        <li>What CRM or lead source are you using now?</li>
+        <li>What response-time target do you want?</li>
+        <li>Where should qualified leads be routed?</li>
+      </ol>
+      <div class="mono">Payment link: {{STRIPE_PAYMENT_LINK}}</div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> David Automation
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
