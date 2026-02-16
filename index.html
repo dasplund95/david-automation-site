@@ -75,7 +75,7 @@
     .start { padding: 26px; }
     .setup-note { margin: 0 0 10px; color: var(--muted); font-size: .92rem; }
     ol { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.6; }
-    .pay-wrap { margin-top: 10px; }
+    .pay-wrap { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
     .pay-btn {
       display: inline-block;
       text-decoration: none;
@@ -87,6 +87,11 @@
       color: #fff;
       border: 1px solid var(--accent);
       transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .pay-btn.secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
     }
     .pay-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,113,227,.22); }
 
@@ -164,7 +169,9 @@
         <li>Where should qualified leads be routed?</li>
       </ol>
       <div class="pay-wrap">
-        <a class="pay-btn" href="https://buy.stripe.com/dRm8wHfCcby07ue2SY87K02" target="_blank" rel="noopener noreferrer">Pay & start setup</a>
+        <a class="pay-btn" href="https://buy.stripe.com/9B66oz75GeKc7uedxC87K05" target="_blank" rel="noopener noreferrer">$250 Beta</a>
+        <a class="pay-btn secondary" href="https://buy.stripe.com/aFafZ90HigSk7ue3X287K06" target="_blank" rel="noopener noreferrer">$500 Standard</a>
+        <a class="pay-btn secondary" href="https://buy.stripe.com/3cI00bahS8lO8yibpu87K04" target="_blank" rel="noopener noreferrer">Monthly Follow-up (Existing Clients)</a>
       </div>
     </section>
 
