@@ -4,7 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>David Automation</title>
-  <meta name="description" content="Minimal AI lead follow-up systems for modern real estate teams." />
+  <meta name="description" content="Minimal AI follow-up systems for modern real estate teams." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230071e3'/%3E%3Ctext x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-size='26' fill='white'%3EDA%3C/text%3E%3C/svg%3E" />
   <style>
     :root {
       --bg: #f5f5f7;
@@ -16,9 +17,7 @@
       --radius: 22px;
       --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       color: var(--text);
@@ -29,37 +28,12 @@
         var(--bg);
       letter-spacing: -0.01em;
     }
-
-    .wrap {
-      width: min(1080px, 92vw);
-      margin: 0 auto;
-      padding: 28px 0 70px;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 18px;
-    }
-
-    .brand {
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .pill {
-      font-size: .8rem;
-      color: var(--muted);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: #ffffffb8;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
+    .wrap { width: min(1080px, 92vw); margin: 0 auto; padding: 28px 0 70px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+    .brand { font-size: 1rem; font-weight: 600; }
+    .pill { font-size: .8rem; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; background: #ffffffb8; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
     .card {
+      position: relative;
       background: var(--card);
       border: 1px solid #ffffff;
       border-radius: var(--radius);
@@ -67,137 +41,101 @@
       -webkit-backdrop-filter: blur(14px);
       box-shadow: var(--shadow);
     }
-
-    .hero {
-      padding: 42px;
-      margin-bottom: 14px;
+    .hero { padding: 42px; margin-bottom: 14px; overflow: hidden; }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -120px;
+      width: 280px;
+      height: 280px;
+      background: radial-gradient(circle, rgba(0,113,227,.16) 0%, rgba(0,113,227,0) 70%);
+      pointer-events: none;
     }
+    h1 { margin: 0; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.06; letter-spacing: -0.03em; max-width: 12ch; font-weight: 650; }
+    .sub { margin-top: 14px; max-width: 64ch; color: var(--muted); line-height: 1.55; font-size: 1.03rem; }
+    .cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+    .btn { text-decoration: none; border-radius: 999px; padding: 12px 18px; font-size: .92rem; font-weight: 600; border: 1px solid var(--line); color: var(--text); background: #fff; transition: transform .18s ease, box-shadow .18s ease; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
-      max-width: 12ch;
-      font-weight: 650;
-    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .chip { font-size: .78rem; color: #4d4d50; border: 1px solid var(--line); border-radius: 999px; padding: 7px 10px; background: #fff; }
 
-    .sub {
-      margin-top: 14px;
-      max-width: 64ch;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 1.03rem;
-    }
+    .proof { padding: 20px 24px; margin: 0 0 14px; }
+    .proof h2 { margin: 0 0 6px; font-size: 1.02rem; font-weight: 620; }
+    .proof p { margin: 0; color: var(--muted); line-height: 1.55; }
 
-    .cta {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 22px;
-    }
-
-    .btn {
-      text-decoration: none;
-      border-radius: 999px;
-      padding: 11px 16px;
-      font-size: .92rem;
-      font-weight: 600;
-      border: 1px solid var(--line);
-      color: var(--text);
-      background: #fff;
-    }
-
-    .btn.primary {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-
-    .section {
-      padding: 26px;
-    }
-
-    h2 {
-      margin: 0 0 10px;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
+    .grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 14px; margin-bottom: 14px; }
+    .section { padding: 26px; }
+    h2 { margin: 0 0 10px; font-size: 1.1rem; font-weight: 600; }
+    ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.6; }
     li + li { margin-top: 6px; }
 
-    .start {
-      padding: 26px;
-    }
-
-    ol {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .mono {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: .92rem;
-      color: #4d4d50;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 8px 10px;
+    .start { padding: 26px; }
+    .setup-note { margin: 0 0 10px; color: var(--muted); font-size: .92rem; }
+    ol { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.6; }
+    .pay-wrap { margin-top: 10px; }
+    .pay-btn {
       display: inline-block;
-      margin-top: 8px;
-      word-break: break-all;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: .92rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid var(--accent);
+      transition: transform .18s ease, box-shadow .18s ease;
     }
+    .pay-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,113,227,.22); }
 
-    footer {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: .84rem;
-      text-align: center;
-    }
+    footer { margin-top: 14px; color: var(--muted); font-size: .84rem; text-align: center; }
+
+    .reveal { opacity: 0; transform: translateY(8px); animation: reveal .55s ease forwards; }
+    .reveal.d2 { animation-delay: .08s; }
+    .reveal.d3 { animation-delay: .14s; }
+    @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
 
     @media (max-width: 900px) {
       .hero, .section, .start { padding: 22px; }
       .grid { grid-template-columns: 1fr; }
+      .btn { padding: 13px 18px; }
+      .sub { max-width: 36ch; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <div class="nav">
+    <div class="nav reveal">
       <div class="brand">David Automation</div>
       <div class="pill">Real Estate Teams • 72-hour setup</div>
     </div>
 
-    <section class="card hero">
+    <section class="card hero reveal d2">
       <h1>AI follow-up, designed to feel effortless.</h1>
       <p class="sub">
         David Automation builds clean, high-conversion follow-up systems for real estate teams.
         Faster response, consistent nurture, and only qualified conversations sent to you.
       </p>
       <div class="cta">
-        <a class="btn primary" href="#start">Start now</a>
+        <a class="btn primary" href="#start">Get started</a>
         <a class="btn" href="#offer">What’s included</a>
+      </div>
+      <div class="chips" aria-label="trust indicators">
+        <span class="chip">72-hour setup</span>
+        <span class="chip">Async onboarding</span>
+        <span class="chip">No long-term contract</span>
       </div>
     </section>
 
+    <section class="card proof reveal d3">
+      <h2>Built for speed-to-lead</h2>
+      <p>Most leads go cold in minutes. We help teams respond fast and follow up consistently without adding headcount.</p>
+    </section>
+
     <div class="grid" id="offer">
-      <section class="card section">
+      <section class="card section reveal d3">
         <h2>What you get</h2>
         <ul>
           <li>Speed-to-lead response flow with personalized follow-up.</li>
@@ -207,7 +145,7 @@
         </ul>
       </section>
 
-      <aside class="card section">
+      <aside class="card section reveal d3">
         <h2>Best fit</h2>
         <ul>
           <li>Teams buying online leads (Zillow, PPC, Meta, Realtor.com).</li>
@@ -217,14 +155,17 @@
       </aside>
     </div>
 
-    <section class="card start" id="start">
+    <section class="card start reveal d3" id="start">
       <h2>Start async (no call required)</h2>
+      <p class="setup-note">Setup starts after intake + payment.</p>
       <ol>
         <li>What CRM or lead source are you using now?</li>
         <li>What response-time target do you want?</li>
         <li>Where should qualified leads be routed?</li>
       </ol>
-      <div class="mono">Payment link: https://buy.stripe.com/dRm8wHfCcby07ue2SY87K02</div>
+      <div class="pay-wrap">
+        <a class="pay-btn" href="https://buy.stripe.com/dRm8wHfCcby07ue2SY87K02" target="_blank" rel="noopener noreferrer">Pay & start setup</a>
+      </div>
     </section>
 
     <footer>
