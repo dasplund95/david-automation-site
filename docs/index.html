@@ -91,21 +91,30 @@ ul, ol { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.64; 
 li + li { margin-top: 6px; }
 .start { padding: 26px; }
 .setup-note { margin: 0 0 10px; color: var(--muted); font-size: .92rem; }
-.pay-wrap { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+.pay-wrap { margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap; }
 .pay-btn {
   display: inline-block;
   text-decoration: none;
   border-radius: 999px;
-  padding: 12px 18px;
-  font-size: .92rem;
-  font-weight: 600;
-  background: linear-gradient(180deg, #5fa8ff 0%, #488ff0 100%);
-  color: #061428;
-  border: 1px solid transparent;
-  transition: transform .18s ease, box-shadow .18s ease;
+  padding: 14px 22px;
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  background: linear-gradient(180deg, #7ab8ff 0%, #4a94f6 100%);
+  color: #051224;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 12px 30px rgba(58,124,233,.35);
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
 }
-.pay-btn.secondary { background: rgba(255,255,255,0.03); color: #dce8ff; border: 1px solid var(--line); }
-.pay-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.4); }
+.pay-btn.secondary {
+  background: linear-gradient(180deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,.03) 100%);
+  color: #e6efff;
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 0 10px 24px rgba(0,0,0,.3);
+}
+.pay-btn:hover { transform: translateY(-1px); box-shadow: 0 14px 34px rgba(58,124,233,.45); filter: brightness(1.04); }
+.plan-cta { margin-top: 14px; }
+.plan-cta .pay-btn { width: 100%; text-align: center; }
 footer { margin-top: 14px; color: #8ea0c2; font-size: .84rem; text-align: center; }
 .reveal { opacity: 0; transform: translateY(8px); animation: reveal .55s ease forwards; }
 .reveal.d2 { animation-delay: .08s; }
@@ -206,6 +215,9 @@ footer { margin-top: 14px; color: #8ea0c2; font-size: .84rem; text-align: center
           <li>Basic testing + launch</li>
           <li>14-day support window</li>
         </ul>
+        <div class="plan-cta">
+          <a class="pay-btn" href="https://buy.stripe.com/9B66oz75GeKc7uedxC87K05" target="_blank" rel="noopener noreferrer">Start Beta Setup</a>
+        </div>
       </section>
 
       <aside class="card section reveal d3">
@@ -218,6 +230,9 @@ footer { margin-top: 14px; color: #8ea0c2; font-size: .84rem; text-align: center
           <li>Deeper implementation polish</li>
           <li>30-day support window</li>
         </ul>
+        <div class="plan-cta">
+          <a class="pay-btn" href="https://buy.stripe.com/aFafZ90HigSk7ue3X287K06" target="_blank" rel="noopener noreferrer">Start Standard Setup</a>
+        </div>
       </aside>
     </div>
 
@@ -229,6 +244,9 @@ footer { margin-top: 14px; color: #8ea0c2; font-size: .84rem; text-align: center
         <li>Submit your top 1-3 requests and we begin updates within 1 business day.</li>
         <li>Built to keep performance improving without a full rebuild.</li>
       </ul>
+      <div class="plan-cta">
+        <a class="pay-btn secondary" href="https://buy.stripe.com/3cI00bahS8lO8yibpu87K04" target="_blank" rel="noopener noreferrer">Activate Monthly Follow-up</a>
+      </div>
     </section>
 
     <section class="card proof reveal d3">
