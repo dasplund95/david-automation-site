@@ -3,119 +3,127 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>David Automation</title>
+  <title>David Automation — Black Glass</title>
   <meta name="description" content="Minimal AI follow-up systems for modern real estate teams." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230071e3'/%3E%3Ctext x='50%25' y='53%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial,sans-serif' font-size='26' fill='white'%3EDA%3C/text%3E%3C/svg%3E" />
   <style>
-    :root {
-      --bg: #f5f5f7;
-      --card: #ffffffcc;
-      --text: #1d1d1f;
-      --muted: #6e6e73;
-      --line: #d2d2d7;
-      --accent: #0071e3;
-      --radius: 22px;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background:
-        radial-gradient(1200px 600px at -10% -30%, #eaf2ff 0%, transparent 60%),
-        radial-gradient(1000px 700px at 120% -20%, #f2f8ff 0%, transparent 55%),
-        var(--bg);
-      letter-spacing: -0.01em;
-    }
-    .wrap { width: min(1080px, 92vw); margin: 0 auto; padding: 28px 0 70px; }
-    .nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-    .brand { font-size: 1rem; font-weight: 600; padding-left: 16px; }
-    .pill { font-size: .8rem; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; background: #ffffffb8; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-    .card {
-      position: relative;
-      background: var(--card);
-      border: 1px solid #ffffff;
-      border-radius: var(--radius);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: var(--shadow);
-    }
-    .hero { padding: 42px; margin-bottom: 14px; overflow: hidden; }
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -120px;
-      top: -120px;
-      width: 280px;
-      height: 280px;
-      background: radial-gradient(circle, rgba(0,113,227,.16) 0%, rgba(0,113,227,0) 70%);
-      pointer-events: none;
-    }
-    h1 { margin: 0; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.06; letter-spacing: -0.03em; max-width: 12ch; font-weight: 650; }
-    .sub { margin-top: 14px; max-width: 64ch; color: var(--muted); line-height: 1.55; font-size: 1.03rem; }
-    .cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
-    .btn { text-decoration: none; border-radius: 999px; padding: 12px 18px; font-size: .92rem; font-weight: 600; border: 1px solid var(--line); color: var(--text); background: #fff; transition: transform .18s ease, box-shadow .18s ease; }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
-    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .chip { font-size: .78rem; color: #4d4d50; border: 1px solid var(--line); border-radius: 999px; padding: 7px 10px; background: #fff; }
-
-    .proof { padding: 20px 24px; margin: 0 0 14px; }
-    .proof h2 { margin: 0 0 6px; font-size: 1.02rem; font-weight: 620; }
-    .proof p { margin: 0; color: var(--muted); line-height: 1.55; }
-
-    .grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 14px; margin-bottom: 14px; }
-    .section { padding: 26px; }
-    h2 { margin: 0 0 10px; font-size: 1.1rem; font-weight: 600; }
-    ul { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.6; }
-    li + li { margin-top: 6px; }
-
-    .start { padding: 26px; }
-    .setup-note { margin: 0 0 10px; color: var(--muted); font-size: .92rem; }
-    ol { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.6; }
-
-    .pay-wrap { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
-    .pay-btn {
-      display: inline-block;
-      text-decoration: none;
-      border-radius: 999px;
-      padding: 12px 18px;
-      font-size: .92rem;
-      font-weight: 600;
-      background: var(--accent);
-      color: #fff;
-      border: 1px solid var(--accent);
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-    .pay-btn.secondary {
-      background: #fff;
-      color: var(--text);
-      border: 1px solid var(--line);
-    }
-    .pay-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,113,227,.22); }
-
-    footer { margin-top: 14px; color: var(--muted); font-size: .84rem; text-align: center; }
-
-    .reveal { opacity: 0; transform: translateY(8px); animation: reveal .55s ease forwards; }
-    .reveal.d2 { animation-delay: .08s; }
-    .reveal.d3 { animation-delay: .14s; }
-    @keyframes reveal { to { opacity: 1; transform: translateY(0); } }
-
-    @media (max-width: 900px) {
-      .hero, .section, .start { padding: 22px; }
-      .grid { grid-template-columns: 1fr; }
-      .btn { padding: 13px 18px; }
-      .sub { max-width: 36ch; }
-    }
+:root {
+  --bg: #07090d;
+  --card: rgba(16, 20, 30, 0.66);
+  --text: #eaf0fb;
+  --muted: #9aa6bf;
+  --line: rgba(255,255,255,0.14);
+  --accent: #5fa8ff;
+  --accent-soft: rgba(95,168,255,0.22);
+  --radius: 24px;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 650px at -10% -25%, rgba(31, 85, 172, 0.28) 0%, transparent 60%),
+    radial-gradient(1000px 700px at 120% -20%, rgba(75, 110, 176, 0.22) 0%, transparent 60%),
+    linear-gradient(180deg, #080b12 0%, #05070b 100%);
+  letter-spacing: -0.01em;
+}
+.wrap { width: min(1120px, 92vw); margin: 0 auto; padding: 30px 0 72px; }
+.nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.brand { font-size: 1rem; font-weight: 600; padding-left: 16px; color: #dfe9ff; }
+.pill {
+  font-size: .8rem;
+  color: #c2d2f5;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(21,27,40,0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.card {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+.hero { padding: 46px; margin-bottom: 14px; overflow: hidden; }
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -120px;
+  top: -120px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(95,168,255,.28) 0%, rgba(95,168,255,0) 70%);
+  pointer-events: none;
+}
+h1 { margin: 0; font-size: clamp(2.1rem, 4vw, 3.5rem); line-height: 1.04; letter-spacing: -0.03em; max-width: 13ch; font-weight: 650; }
+.sub { margin-top: 14px; max-width: 64ch; color: var(--muted); line-height: 1.58; font-size: 1.04rem; }
+.cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+.btn {
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: .92rem;
+  font-weight: 600;
+  border: 1px solid var(--line);
+  color: #e7efff;
+  background: rgba(255,255,255,0.02);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .2s ease;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.35); border-color: rgba(255,255,255,.28); }
+.btn.primary { background: linear-gradient(180deg, #5fa8ff 0%, #488ff0 100%); color: #05142a; border-color: transparent; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.chip { font-size: .78rem; color: #c6d6f6; border: 1px solid var(--line); border-radius: 999px; padding: 7px 10px; background: rgba(255,255,255,0.02); }
+.proof { padding: 20px 24px; margin: 0 0 14px; }
+#monthly-followup { max-width: 860px; margin-left: auto; margin-right: auto; }
+.proof h2 { margin: 0 0 8px; font-size: 1.03rem; font-weight: 620; color: #ebf2ff; }
+.proof p { margin: 0; color: var(--muted); line-height: 1.56; }
+.grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 14px; margin-bottom: 14px; }
+.section { padding: 26px; }
+h2 { margin: 0 0 10px; font-size: 1.1rem; font-weight: 600; color: #edf3ff; }
+ul, ol { margin: 0; padding-left: 18px; color: var(--muted); line-height: 1.64; }
+li + li { margin-top: 6px; }
+.start { padding: 26px; }
+.setup-note { margin: 0 0 10px; color: var(--muted); font-size: .92rem; }
+.pay-wrap { margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; }
+.pay-btn {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-size: .92rem;
+  font-weight: 600;
+  background: linear-gradient(180deg, #5fa8ff 0%, #488ff0 100%);
+  color: #061428;
+  border: 1px solid transparent;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.pay-btn.secondary { background: rgba(255,255,255,0.03); color: #dce8ff; border: 1px solid var(--line); }
+.pay-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(0,0,0,.4); }
+footer { margin-top: 14px; color: #8ea0c2; font-size: .84rem; text-align: center; }
+.reveal { opacity: 0; transform: translateY(8px); animation: reveal .55s ease forwards; }
+.reveal.d2 { animation-delay: .08s; }
+.reveal.d3 { animation-delay: .14s; }
+@keyframes reveal { to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 900px) {
+  .hero, .section, .start { padding: 22px; }
+  .grid { grid-template-columns: 1fr; }
+  .btn { padding: 13px 18px; }
+  .sub { max-width: 36ch; }
+}
   </style>
 </head>
 <body>
   <div class="wrap">
     <div class="nav reveal">
       <div class="brand">David Automation</div>
-      <div class="pill">For Real Estate Teams • 72-hour setup</div>
+      <div class="pill">Built for serious real estate operators � Setup starts in 72 hours</div>
     </div>
 
     <section class="card hero reveal d2">
@@ -213,7 +221,7 @@
       </aside>
     </div>
 
-    <section class="card proof reveal d3">
+    <section class="card proof reveal d3" id="monthly-followup">
       <h2>Monthly Follow-up (Existing Customers)</h2>
       <ul>
         <li>For existing setup clients who want continuous tuning and improvements.</li>
